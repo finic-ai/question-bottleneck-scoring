@@ -1,6 +1,6 @@
 # Question-Bottleneck Scoring (QBS)
 
-A reference implementation of QBS, described in the whitepaper [Question-Bottleneck Scoring](WHITEPAPER_URL).
+A reference implementation of QBS, described in the whitepaper "Question-Bottleneck Scoring" (Finic, 2026).
 
 QBS turns a decision into plain-language yes/no questions. A decision model answers each question with a calibrated probability, and a logistic regression weights the answers into a score. Every score traces back to a few answers a person can check.
 

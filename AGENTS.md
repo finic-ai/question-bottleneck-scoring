@@ -1,6 +1,6 @@
 # AGENTS.md
 
-This repo is a small reference implementation of Question-Bottleneck Scoring (QBS). It is meant to be run as is or adapted to a new decision. Whitepaper: [Question-Bottleneck Scoring](WHITEPAPER_URL).
+This repo is a small reference implementation of Question-Bottleneck Scoring (QBS). It is meant to be run as is or adapted to a new decision. It follows the whitepaper "Question-Bottleneck Scoring" (Finic, 2026).
 
 ## The approach
 

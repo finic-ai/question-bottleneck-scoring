@@ -3,3 +3,4 @@ __pycache__/
 .venv/
 model.json
 *.answers.jsonl
+build/
