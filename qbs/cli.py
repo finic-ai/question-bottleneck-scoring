@@ -19,6 +19,7 @@ def main():
     s.add_argument("model", help="model.json from qbs fit")
     s.add_argument("records", help="records to score, .jsonl or .csv")
     s.add_argument("-o", "--out", help="write scores here instead of stdout")
+    s.add_argument("--label", default="is_bad", help="dropped from records before scoring")
     args = parser.parse_args()
 
     if args.command == "setup":
@@ -28,7 +29,12 @@ def main():
 
     if args.command == "fit":
         rows = core.read_records(args.records)
+        missing = sum(args.label not in r for r in rows)
+        if missing:
+            sys.exit(f"{missing} records have no {args.label} field")
         labels = [core.is_bad(r.pop(args.label)) for r in rows]
+        if len(set(labels)) < 2:
+            sys.exit(f"Every record has the same {args.label}; fitting needs both outcomes")
         questions = core.read_questions(args.questions)
         spec = core.fit(model, rows, labels, questions, args.records + ".answers.jsonl", args.max_questions)
         with open(args.out, "w") as out:
@@ -44,6 +50,8 @@ def main():
         with open(args.model) as f:
             spec = json.load(f)
         rows = core.read_records(args.records)
+        for r in rows:
+            r.pop(args.label, None)
         out = open(args.out, "w") if args.out else sys.stdout
         for row in core.score(model, spec, rows):
             out.write(json.dumps(row) + "\n")

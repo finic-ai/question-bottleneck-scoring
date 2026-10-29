@@ -10,11 +10,12 @@ SIGNUP_URL = "https://portal.finic.ai/keys"
 
 
 def load():
+    config = json.loads(PATH.read_text()) if PATH.exists() else None
+    if config and config["model"] != "grayson":
+        return config
     if os.environ.get("FINIC_API_KEY"):
         return {"model": "grayson", "api_key": os.environ["FINIC_API_KEY"]}
-    if PATH.exists():
-        return json.loads(PATH.read_text())
-    return setup()
+    return config or setup()
 
 
 def save(config):
