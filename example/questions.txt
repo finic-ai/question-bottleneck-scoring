@@ -1,0 +1,12 @@
+Would a careful person looking at the name, email, phone and address believe they belong to one real individual?
+Is the address written the way people in that country normally write addresses?
+Does the email address fit someone from the account’s country (language, naming conventions, local providers)?
+Does the phone number’s country code match the account’s country?
+Does the email handle look randomly generated?
+Is the email at a disposable or throwaway provider?
+Does the email name match the account holder’s name?
+Does the sign-up IP country match the account’s country?
+Does the device look automated or emulated rather than a person’s phone or computer?
+Was the first payment made unusually soon after sign-up?
+Does the identity look synthetic: real-looking pieces that don’t belong together?
+Does the account look like an ordinary consumer signing up for themselves?
